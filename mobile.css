@@ -1,0 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
+body {
+  font-family: Orbitron;
+  background-color: #083645;
+}
+
+
+<script type="text/javascript">
+if (screen.width <= 700) {
+document.location = "mobile/mobile.html";
+}
+</script>
