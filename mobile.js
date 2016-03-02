@@ -1,4 +1,4 @@
-var game = new Phaser.Game(600, 600, Phaser.AUTO, null, {preload: preload, create: create, update: update});
+var game = new Phaser.Game(700, 700, Phaser.AUTO, null, {preload: preload, create: create, update: update});
 
 var asteroid;
 var trampoline;
@@ -53,7 +53,7 @@ function create() {
 
     createShips();
 
-    startText = game.add.text(350, 350, 'Click the Trampoline!', {font: '20px Orbitron', fill: 'limegreen'});
+    startText = game.add.text(350, 350, 'Touch and hold the trampoline!', {font: '20px Orbitron', fill: 'limegreen'});
     startText.anchor.set(0.5);
     startText.visible = true;
 
@@ -68,7 +68,7 @@ function create() {
 
     lifeLostText = game.add.text(350, 350, 'Life lost! Click to start again.', { font: '20px Orbitron', fill: 'limegreen' });
     lifeLostText.anchor.set(0.5);
-    lifeLostText.visible = true;
+    lifeLostText.visible = false;
 
     startButton = game.add.button(350, 640, 'button', startGame, this, 1, 0, 2);
     startButton.anchor.set(0.5);
@@ -113,6 +113,8 @@ function createShips() {
 function ballHitBrick(asteroid, ship) {
     shipsLeft -= 1;
     score += 100;
+    scoreText.setText('Score: '+score);
+    shipsLeftText.setText('Enemies left: '+shipsLeft);
     // $('#scoreVal').text(score);
     killed += 1;
     // $('#numKilled').text(shipsLeft);
